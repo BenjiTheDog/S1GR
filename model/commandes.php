@@ -42,9 +42,11 @@ echo "<thead class='table-dark'>
             <th class='text-center'>Date</th>
             <th class='text-center'>Total</th>
             <th class='text-center'>Statut</th>
-            <th class='text-center'>Stocks</th>
-            <th class='text-center'>Actions</th>
-        </tr>
+            <th class='text-center'>Stocks</th>";
+if ($_SESSION['role'] !== 'employe') {
+    echo "<th class='text-center'>Actions</th>";
+}
+echo "</tr>
       </thead>
       <tbody>";
 
@@ -56,10 +58,12 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo '<td class="text-center">' . htmlspecialchars($row['total'] ?? '') . " €</td>";
     echo '<td class="text-center">' . htmlspecialchars($row['statut'] ?? '') . "</td>";
     echo '<td class="text-center">' . htmlspecialchars($row['stocks'] ?? 'Aucun stock associé') . "</td>";
+if ($_SESSION['role'] !== 'employe') {
     echo "<td class='text-center'>
             <a href='view/modifier_commande.php?id=" . htmlspecialchars($row['commande_id'] ?? '') . "' class='btn btn-warning btn-sm'>Modifier</a>
             <a href='model/supprimer_commande.php?id=" . htmlspecialchars($row['commande_id'] ?? '') . "' class='btn btn-danger btn-sm' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer cette commande ?\");'>Supprimer</a>
           </td>";
+}
     echo "</tr>";
 }
 

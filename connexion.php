@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Redirection si déjà connecté
+
 if (isset($_SESSION['user_id'])) {
     if ($_SESSION['role'] === 'admin') {
         header("Location: admin.php");
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['util'] = $user['util'];
         $_SESSION['role'] = $user['role'];
 
-        // Redirection selon le rôle
+
         if ($user['role'] === 'admin') {
             header("Location: index.php");
         } else {

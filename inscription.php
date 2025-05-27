@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Inscription</title>
-    <link rel="stylesheet" href="style.css"> <!-- ton fichier CSS si tu en as un -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h2>Inscription</h2>
