@@ -11,7 +11,11 @@ include 'view/header.php';
 
 //------------------------------------Page-Stocks-----------------------------------------
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['load_stocks'])) {
-    loadStocksPage();
+    if ($_SESSION['role'] !== 'employe') {
+        loadStocksPage();
+    } else {
+        echo "<p style='color:red; text-align:center;'>Accès refusé : réservé aux administrateurs.</p>";
+    }
 }
 
 function loadStocksPage() {
@@ -23,7 +27,11 @@ function loadStocksPage() {
 
 //------------------------------------Page-Clients-----------------------------------------
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['load_clients'])) {
-    loadClientsPage();
+    if ($_SESSION['role'] !== 'employe') {
+        loadClientsPage();
+    } else {
+        echo "<p style='color:red; text-align:center;'>Accès refusé : réservé aux administrateurs.</p>";
+    }
 }
 
 function loadClientsPage() {
@@ -52,4 +60,5 @@ function loadHomePage() {
 //-----------------------------------------------------------------------------------------
 
 include 'view/footer.php';
+
 ?>
