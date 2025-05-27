@@ -16,6 +16,8 @@
             <p>
                 En s'appuyant sur des technologies modernes et une interface conviviale, <strong>GestionRoy</strong> s'impose comme un atout stratégique dans le développement et la pérennité de GarageRoy.
             </p>
+
+            <a href="logout.php" class="btn btn-danger">Déconnexion</a>
         </div>
     </div>
 </div>
